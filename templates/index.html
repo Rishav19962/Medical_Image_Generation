@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Image</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+       
+        a:link {
+            color: blue;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        a:visited {
+            color: pink;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+        a:active {
+            color: yellow;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+        .href_col {
+            color: #ccc;
+        }
+        input[type=text],
+        select,
+        textarea {
+            width: 80%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+            font-size: 20px;
+        }
+        input[type=submit] {
+            background-color: #04AA6D;
+            /* Change the color here */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25,
+            .col-75,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+        html {
+            /* background-color: beige; */
+            background-image: url('/static/imgmedical.jpg');
+
+            background-repeat: no-repeat; /* Prevent background image from repeating */
+            background-size: cover; /* Ensure the background image covers the entire viewport */
+            background-position: center;
+        }
+        .center {
+            text-align: center;
+            color:rgb(153, 51, 11);
+        }
+        h2 {
+            text-align: center;
+            color:rgb(1, 52, 153);
+            font-size: 58px;
+            
+        }
+        h1{
+          
+          font-size: 94px;
+        }
+        h3{
+          color: #7303b4ef;
+          font-size: 30px;
+        }
+        ph{
+          text-align: center;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255,0.68); /* Adjust opacity here (0.5 for 50% opacity) */
+            z-index: -1; 
+        }
+        .login {
+          padding-top: 10px;
+          padding-right: 5%;
+        }
+        body{
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <!-- <h1 id="center">Medical Image Generation</h1> -->
+        <h1 id="dynamicText"></h1>
+        <h2 >
+          Here we generate Chest X-Ray Image using Generative Adversarial Network
+      </h2>
+        <form action="/generate" method="post">
+            <label for="num_images"><h3>Number of Images to Generate:</h3></label>
+            <input type="number" id="num_images" name="num_images" min="1" required>
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+  
+
+    <script>
+      // JavaScript for dynamically showing text with the specified color
+      document.addEventListener("DOMContentLoaded", function() {
+          var text = "Medical Image Generation";
+          var dynamicText = document.getElementById("dynamicText");
+          var index = 0;
+
+          function showText() {
+              if (index < text.length) {
+                  var span = document.createElement("span");
+                  span.textContent = text[index];
+                  span.style.color = "rgb(153, 51, 11)"; // Set the color directly
+                  dynamicText.appendChild(span);
+                  index++;
+                  setTimeout(showText, 100); // Adjust the delay between letters
+              } else {
+                  dynamicText.classList.add("center"); // Add the class "center" after all letters are added
+              }
+          }
+
+          showText();
+      });
+  </script>
+  </script>
+</body>
+</html>

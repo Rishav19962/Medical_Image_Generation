@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Images</title>
+</head>
+<style>
+    #center{
+    text-align: center;
+    color: rgb(210, 8, 24);
+    font-size: 30px;
+}
+#first{
+    text-align: center;
+    color: blue;
+    font-size: 40px;
+}
+html{
+  /* background: linear-gradient(0.25turn,rgb(196, 196, 209), black,rgb(243, 251, 244)); */
+  background-color: beige;
+  /* background-image: url('/static/imgmedical.jpg'); */
+            background-repeat: no-repeat; /* Prevent background image from repeating */
+            background-size: cover; /* Ensure the background image covers the entire viewport */
+            background-position: center;
+}
+body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255,0.68); /* Adjust opacity here (0.5 for 50% opacity) */
+            z-index: -1; 
+        }
+
+        .generated-image {
+            max-width: 800px;
+            height: auto;
+        }
+</style>
+<body>
+    <h2 id="first">Chest X-Ray Images generation </h2>
+    <body>
+        <h1 id="center">Generated Images</h1>
+        <!-- Display generated images -->
+        {{ images_html | safe }}
+    
+    </body>
+</body>
+</html>
