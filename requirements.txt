@@ -1,6 +1,9 @@
+
 Flask
 Gunicorn
 Keras
 numpy
 Pillow
 tensorflow==2.15.0
+cudatoolkit
+cudnn
