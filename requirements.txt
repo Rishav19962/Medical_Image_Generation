@@ -3,3 +3,4 @@ Gunicorn
 Keras
 numpy
 Pillow
+tensorflow
