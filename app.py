@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Load the generator model
 model = load_model('generator_model_045.h5')
-
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 # Function to generate images
 def generate_images(num_images):
     latent_points = generate_latent_points(100, num_images)
