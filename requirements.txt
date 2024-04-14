@@ -5,5 +5,5 @@ Keras
 numpy
 Pillow
 tensorflow==2.15.0
-cudatoolkit
+cudatoolkit==11.2
 cudnn
